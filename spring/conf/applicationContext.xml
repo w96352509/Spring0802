@@ -29,29 +29,35 @@
 		p:name="Helen" p:sex="女" p:age="20" />
 
 	<bean id="author4" class="com.study.spring.case01.Author"
-		c:name="Vic" c:sex="女" c:age="19"  />
+		c:name="Vic" c:sex="女" c:age="19" />
 	<bean id="book1" class="com.study.spring.case01.Book">
-	<property name="name">
-	<value>Spring</value>
-	</property>
-	<property name="price">
-	<value>500</value>
-	</property>
-	<property name="author" ref="author1"/>
+		<property name="name">
+			<value>Spring</value>
+		</property>
+		<property name="price">
+			<value>500</value>
+		</property>
+		<property name="author" ref="author1" />
 	</bean>
-	
+
 	<bean id="book2" class="com.study.spring.case01.Book">
-	<constructor-arg value="Python"></constructor-arg>
-	<constructor-arg value="300"></constructor-arg>
-	<constructor-arg ref="author2"></constructor-arg>
+		<constructor-arg value="Python"></constructor-arg>
+		<constructor-arg value="300"></constructor-arg>
+		<constructor-arg ref="author2"></constructor-arg>
 	</bean>
-	
+
 	<bean id="book3" class="com.study.spring.case01.Book"
-	p:name="Peko" p:price="500" p:author-ref="author3"
-	></bean>
-	
+		p:name="Peko" p:price="500" p:author-ref="author3"></bean>
+
 	<bean id="book4" class="com.study.spring.case01.Book"
-	c:name="Miko" c:price="500" c:author-ref="author4"
-	></bean>	
+		c:name="Miko" c:price="500" c:author-ref="author4"></bean>
+
+	<bean id="husband" class="com.study.spring.case01.Husband"
+		p:name="miko" p:wife-ref="wife"></bean>
+	<bean id="wife" class="com.study.spring.case01.Wife" p:name="Peko"
+		p:husband-ref="husband"></bean>
+
+
+
 
 </beans>
