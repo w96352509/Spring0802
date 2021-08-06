@@ -26,9 +26,9 @@ public class MainTest2 {
 		Husband husband = (Husband) ctx.getBean("husband");
 		Wife wife = (Wife) ctx.getBean("wife");
 		System.out.println(wife);
-		System.out.println(husband);
-		System.out.printf("%s 的老公是 %s ",husband.getName(),husband.getWife().getName());
-		System.out.printf("%s 的老婆是 %s ",wife.getName(),wife.getHusband().getName());
+	    System.out.println(husband);
+		System.out.printf("%s 的老公是 %s\n",husband.getName(),husband.getWife().getName());
+		System.out.printf("%s 的老婆是 %s\n",wife.getName(),wife.getHusband().getName());
 	}
 
 }

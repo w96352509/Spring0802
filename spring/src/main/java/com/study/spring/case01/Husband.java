@@ -30,6 +30,11 @@ public class Husband {
 		this.wife = wife;
 	}
 
+	@Override
+	public String toString() {
+		return "Husband [name=" + name + ", wife=" + wife.getName() + "]";
+	}
+
 	
 
 }
