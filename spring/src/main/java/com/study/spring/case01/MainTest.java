@@ -20,8 +20,12 @@ public class MainTest {
         
         Book   book1   =(Book)ctx.getBean("book1");
         Book   book2   =(Book)ctx.getBean("book2");
+        Book   book3   =(Book)ctx.getBean("book3");
+        Book   book4   =(Book)ctx.getBean("book4");
         System.out.println(book1);
         System.out.println(book2);
+        System.out.println(book3);
+        System.out.println(book4);
 	}
 
 }
