@@ -4,12 +4,52 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="clazz1" class="com.study.spring.case02.Clazz" p:id="501"
+		p:name="Program" p:credit="3" />
+	<bean id="clazz2" class="com.study.spring.case02.Clazz" p:id="502"
+		p:name="Math" p:credit="2" />
+	<bean id="clazz3" class="com.study.spring.case02.Clazz" p:id="503"
+		p:name="English" p:credit="1" />
+
+
 	
 	<bean id="student1" scope="singleton"
-		class="com.study.spring.case02.Student"
-		p:id="1001" p:name="John"
-		init-method="init"
-		destroy-method="destroy" />
+		class="com.study.spring.case02.Student" p:id="1001" p:name="John"
+		init-method="init" destroy-method="destroy"> 
+		<property name="clazzs">
+		<set>
+		<ref bean="clazz1"/>
+		
+		</set>
+		</property>
+		</bean>
 	
-	
+	<bean id="student2" scope="singleton"
+		class="com.study.spring.case02.Student" p:id="1002" p:name="Mary"
+		init-method="init" destroy-method="destroy"> 
+		<property name="clazzs">
+		<set>
+		<ref bean="clazz1"/>
+		<ref bean="clazz2"/>
+		
+		</set>
+		</property>
+		</bean>
+		
+		<bean id="student3" scope="singleton"
+		class="com.study.spring.case02.Student" p:id="1003" p:name="Helen"
+		init-method="init" destroy-method="destroy"> 
+		<property name="clazzs">
+		<set>
+		<ref bean="clazz1"/>
+		<ref bean="clazz2"/>
+		<ref bean="clazz3"/>
+		</set>
+		</property>
+		</bean>
+		
+		
+		
+
+
 </beans>
