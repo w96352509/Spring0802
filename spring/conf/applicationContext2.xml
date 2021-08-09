@@ -129,6 +129,9 @@
 		p:id="${teacher.id}" p:name="${teacher.name}" 
 		p:students-ref="students" p:subjects-ref="subjects" p:salary-ref="salary" />
 	
+    <bean id="carFactory" class="com.study.spring.case02.CarFactory"/>	
+	
+	
 	
 	
 </beans>
