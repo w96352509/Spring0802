@@ -12,44 +12,53 @@
 		p:name="English" p:credit="1" />
 
 
-	
+
 	<bean id="student1" scope="singleton"
 		class="com.study.spring.case02.Student" p:id="1001" p:name="John"
-		init-method="init" destroy-method="destroy"> 
+		init-method="init" destroy-method="destroy">
 		<property name="clazzs">
-		<set>
-		<ref bean="clazz1"/>
-		
-		</set>
+			<set>
+				<ref bean="clazz1" />
+
+			</set>
 		</property>
-		</bean>
-	
+	</bean>
+
 	<bean id="student2" scope="singleton"
 		class="com.study.spring.case02.Student" p:id="1002" p:name="Mary"
-		init-method="init" destroy-method="destroy"> 
+		init-method="init" destroy-method="destroy">
 		<property name="clazzs">
-		<set>
-		<ref bean="clazz1"/>
-		<ref bean="clazz2"/>
-		
-		</set>
+			<set>
+				<ref bean="clazz1" />
+				<ref bean="clazz2" />
+			</set>
 		</property>
-		</bean>
-		
-		<bean id="student3" scope="singleton"
+	</bean>
+
+	<bean id="student3" scope="singleton"
 		class="com.study.spring.case02.Student" p:id="1003" p:name="Helen"
-		init-method="init" destroy-method="destroy"> 
+		init-method="init" destroy-method="destroy">
 		<property name="clazzs">
-		<set>
-		<ref bean="clazz1"/>
-		<ref bean="clazz2"/>
-		<ref bean="clazz3"/>
-		</set>
+			<set>
+				<ref bean="clazz1" />
+				<ref bean="clazz2" />
+				<ref bean="clazz3" />
+			</set>
 		</property>
-		</bean>
-		
-		
-		
+	</bean>
+
+	<bean id="teacher" class="com.study.spring.case02.Teacher"
+	p:id="1111" p:name="tea"> 
+	<property name="students">
+	<set>
+	<ref bean="student1"></ref>
+	<ref bean="student2"></ref>
+	<ref bean="student3"></ref>
+	</set>
+	</property>
+	</bean>
+
+
 
 
 </beans>
