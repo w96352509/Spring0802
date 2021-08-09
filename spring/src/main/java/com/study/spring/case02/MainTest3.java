@@ -7,11 +7,14 @@ public class MainTest3 {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx  = new ClassPathXmlApplicationContext("applicationContext2.xml");
-		Teacher teacher =(Teacher)ctx.getBean("teacher");
-		System.out.println(teacher.getTotalCredits());
-		System.out.println(teacher.getStudents().size());
-		
-		
+		Teacher t1 = (Teacher)ctx.getBean("teacher1");
+		System.out.println(t1);
+		System.out.println(t1.getStudents().size());
+		System.out.println(t1.getTotalCredits());
+		Teacher t2 = (Teacher)ctx.getBean("teacher2");
+		System.out.println(t2);
+		Teacher t3 = (Teacher)ctx.getBean("teacher3");
+		System.out.println(t3);
 	}
 
 }

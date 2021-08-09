@@ -9,8 +9,6 @@ public class MainTest2 {
 		ApplicationContext ctx  = new ClassPathXmlApplicationContext("applicationContext2.xml");
 		Student s1 = (Student)ctx.getBean("student1");
 		System.out.println(s1);
-		Teacher teacher =(Teacher)ctx.getBean("teacher");
-		System.out.println(teacher);
 		
 		
 	}

@@ -2,63 +2,133 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<bean id="clazz1" class="com.study.spring.case02.Clazz" p:id="501"
-		p:name="Program" p:credit="3" />
-	<bean id="clazz2" class="com.study.spring.case02.Clazz" p:id="502"
-		p:name="Math" p:credit="2" />
-	<bean id="clazz3" class="com.study.spring.case02.Clazz" p:id="503"
-		p:name="English" p:credit="1" />
-
-
-
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- 資源文件加載 -->
+	<!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="user.properties"></property>
+	</bean>-->
+	<!--Namespaces-context-->
+	<context:property-placeholder location="user.properties"/>
+	
+	
+	
+	
+	<bean id="clazz1" class="com.study.spring.case02.Clazz" p:id="501" p:name="Program" p:credit="3"/>
+	<bean id="clazz2" class="com.study.spring.case02.Clazz" p:id="502" p:name="Math" p:credit="2"/>
+	<bean id="clazz3" class="com.study.spring.case02.Clazz" p:id="503" p:name="English" p:credit="1"/>
+	
 	<bean id="student1" scope="singleton"
-		class="com.study.spring.case02.Student" p:id="1001" p:name="John"
-		init-method="init" destroy-method="destroy">
+		class="com.study.spring.case02.Student"
+		p:id="1001" p:name="John"
+		init-method="init"
+		destroy-method="destroy">
 		<property name="clazzs">
 			<set>
-				<ref bean="clazz1" />
-
+				<ref bean="clazz1"/>
+				<ref bean="clazz3"/>
 			</set>
-		</property>
+		</property>	
 	</bean>
-
+	
 	<bean id="student2" scope="singleton"
-		class="com.study.spring.case02.Student" p:id="1002" p:name="Mary"
-		init-method="init" destroy-method="destroy">
+		class="com.study.spring.case02.Student"
+		p:id="1002" p:name="Mary"
+		init-method="init"
+		destroy-method="destroy">
 		<property name="clazzs">
 			<set>
-				<ref bean="clazz1" />
-				<ref bean="clazz2" />
+				<ref bean="clazz2"/>
+				<ref bean="clazz3"/>
 			</set>
-		</property>
+		</property>	
 	</bean>
-
+	
 	<bean id="student3" scope="singleton"
-		class="com.study.spring.case02.Student" p:id="1003" p:name="Helen"
-		init-method="init" destroy-method="destroy">
+		class="com.study.spring.case02.Student"
+		p:id="1003" p:name="Helen"
+		init-method="init"
+		destroy-method="destroy">
 		<property name="clazzs">
 			<set>
-				<ref bean="clazz1" />
-				<ref bean="clazz2" />
-				<ref bean="clazz3" />
+				<ref bean="clazz1"/>
+				<ref bean="clazz2"/>
+				<ref bean="clazz3"/>
+			</set>
+		</property>	
+	</bean>
+	
+	<util:set id="students">
+		<ref bean="student1"/>
+		<ref bean="student3"/>
+	</util:set>
+	
+	<util:list id="subjects">
+		<value>Java</value>
+		<value>VB</value>
+	</util:list>
+	
+	<util:map id="salary">
+		<entry>
+			<key>
+				<value>base</value>
+			</key>
+			<value>60000</value>
+		</entry>
+		<entry>
+			<key>
+				<value>addition</value>
+			</key>
+			<value>25000</value>
+		</entry>
+	</util:map>
+	
+	<bean id="teacher1" class="com.study.spring.case02.Teacher"
+		p:id="1" p:name="Bob">
+		
+		<property name="students">
+			<set>
+				<ref bean="student1"/>
+				<ref bean="student2"/>
+				<ref bean="student3"/>
 			</set>
 		</property>
+		
+		<property name="subjects">
+			<list>
+				<value>Program</value>
+				<value>Math</value>
+				<value>English</value>
+				<value>Chinese</value>
+			</list>
+		</property>
+		
+		<property name="salary">
+			<map>
+				<entry key="base">
+					<value>50000</value>
+				</entry>
+				<entry key="addition">
+					<value>20000</value>
+				</entry>
+			</map>
+		</property>
+		
 	</bean>
-
-	<bean id="teacher" class="com.study.spring.case02.Teacher"
-	p:id="1111" p:name="tea"> 
-	<property name="students">
-	<set>
-	<ref bean="student1"></ref>
-	<ref bean="student2"></ref>
-	<ref bean="student3"></ref>
-	</set>
-	</property>
-	</bean>
-
-
-
-
+	
+	<bean id="teacher2" class="com.study.spring.case02.Teacher"
+		p:id="2" p:name="Jo" 
+		p:students-ref="students" p:subjects-ref="subjects" p:salary-ref="salary" />
+		
+	<bean id="teacher3" class="com.study.spring.case02.Teacher"
+		p:id="${teacher.id}" p:name="${teacher.name}" 
+		p:students-ref="students" p:subjects-ref="subjects" p:salary-ref="salary" />
+	
+	
+	
 </beans>
