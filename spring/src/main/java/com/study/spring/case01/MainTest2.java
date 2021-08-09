@@ -29,6 +29,12 @@ public class MainTest2 {
 	    System.out.println(husband);
 		System.out.printf("%s 的老公是 %s\n",husband.getName(),husband.getWife().getName());
 		System.out.printf("%s 的老婆是 %s\n",wife.getName(),wife.getHusband().getName());
+	
+		Husband husband2 = (Husband) ctx.getBean("husband2");
+		Wife wife2 = (Wife) ctx.getBean("wife2");
+		System.out.println(husband2.getName()+","+husband2.getWife().getName());
+	    //wife2.setHusband(husband2);
+		System.out.println(wife2.getName()+","+wife2.getHusband().getName());
 	}
 
 }

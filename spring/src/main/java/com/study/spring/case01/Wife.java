@@ -9,6 +9,12 @@ public class Wife {
 		this.name = name;
 		this.husband = husband;
 	}
+	
+	public Wife(String name) {
+
+		this.name = name;
+		
+	}
 
 	public Wife() {
 
@@ -30,10 +36,7 @@ public class Wife {
 		this.husband = husband;
 	}
 
-	@Override
-	public String toString() {
-		return "Wife [name=" + name + ", husband=" + husband.getName() + "]";
-	}
+	
 
 	
 

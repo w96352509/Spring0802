@@ -57,6 +57,14 @@
 	<bean id="wife" class="com.study.spring.case01.Wife" p:name="Peko"
 		p:husband-ref="husband"></bean>
 
+	<bean id="husband2" class="com.study.spring.case01.Husband"
+	c:name="Tom" p:wife-ref="wife2"	></bean>
+		
+		
+	<bean id="wife2" class="com.study.spring.case01.Wife"
+	c:name="KK" p:husband-ref="husband2" ></bean>
+	
+
 
 
 
