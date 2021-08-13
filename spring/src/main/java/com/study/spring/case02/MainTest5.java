@@ -6,10 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MainTest5 {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx  = new ClassPathXmlApplicationContext("beans-config.xml");
-	    Round r1 =(Round)ctx.getBean("r");
-	    System.out.println(r1);
-	    System.out.println(r1.getRoundArea());
+		ApplicationContext ctx  = new ClassPathXmlApplicationContext("applicationContext2.xml");
+	    Paper p1 = (Paper)ctx.getBean("paper") ;
+	    System.out.println(p1);
 		
 		
 	}
