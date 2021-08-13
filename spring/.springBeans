@@ -9,6 +9,7 @@
 	<configs>
 		<config>conf/applicationContext.xml</config>
 		<config>conf/applicationContext2.xml</config>
+		<config>conf/beans-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
