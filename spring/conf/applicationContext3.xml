@@ -5,21 +5,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-    <!--  
-    use-default-filters="true" 可以排除 context:exclude-filter  所定義的
-    -->
-    <context:component-scan base-package="com.study.spring.case03" use-default-filters="true">
-    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
-    <context:exclude-filter type="assignable" expression="com.study.spring.case03.service.Util"/>
-    </context:component-scan>
-	
+	<context:component-scan
+		base-package="com.study.spring.case03"></context:component-scan>
+	<!-- use-default-filters="true" 可以排除 context:exclude-filter 所定義的 -->
+
+	<!-- <context:component-scan base-package="com.study.spring.case03" use-default-filters="true"> 
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/> 
+		<context:exclude-filter type="assignable" expression="com.study.spring.case03.service.Util"/> 
+		</context:component-scan> -->
+
 	<!-- 只有@註解才會被掃描並歸讓Spring運作 全掃瞄use-default-filters="ture" -->
-	
+
 	<!-- 過濾條件:use-default-filters="false" 指掃描<context:include-filter type="" 
 		expression=""/>所定義的 -->
-	
+
 	<!-- Util類別可以不加上@Component -->
-	
+
 	<!-- <context:component-scan base-package="com.study.spring.case03" use-default-filters="false"> 
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" 
 		/> <context:include-filter type="annotation" expression="org.springframework.stereotype.Service" 

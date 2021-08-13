@@ -7,4 +7,10 @@ public class UserDaoImpl implements UserDao {
 	public UserDaoImpl() {
 		System.out.println("UserDao()");
 	}
+
+	@Override
+	public void createUser() {
+		System.out.println("Create User ok");
+		
+	}
 }

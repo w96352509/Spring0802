@@ -7,4 +7,10 @@ public class UserServiceImpl implements UserService {
 	public UserServiceImpl() {
 		System.out.println("UserService()");
 	}
+
+	@Override
+	public void addUser() {
+		
+		
+	}
 }

@@ -7,4 +7,7 @@ public class UserController {
 	public UserController() {
 		System.out.println("UserController()");
 	}
+	public void appendUser() {
+		
+	}
 }
