@@ -14,9 +14,25 @@
 	p:id="1" p:name="yellow"
 	></bean>
 	
-	<!-- 自動配置 byType根據型別-->
+	<bean id="red" class="com.study.spring.case02.Color"
+	p:id="1" p:name="red"
+	></bean>
+	
+	<bean id="size" class="com.study.spring.case02.Size"
+	p:id="1" p:name="A4"
+	></bean>
+	
+	<bean id="b5" class="com.study.spring.case02.Size"
+	p:id="1" p:name="B5"
+	></bean>
+	
+	<!-- 自動配置 byType根據型別(從case02.Paper中尋找對映)-->
 	<bean id="paper" class="com.study.spring.case02.Paper"
-	p:id="101" autowire="byType"
+	p:id="101" autowire="byName"
+	/>
+	
+	<bean id="paper2" class="com.study.spring.case02.Paper2"
+	p:id="102" autowire="byName"
 	/>
 	
 	<!-- 資源文件加載 -->
