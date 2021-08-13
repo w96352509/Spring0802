@@ -30,11 +30,11 @@
 	
 	<!-- 自動配置 byType根據型別(從case02.Paper中尋找對映)/預設defult就是no-->
 	<bean id="paper" class="com.study.spring.case02.Paper"
-	p:id="101" autowire="default"
+	p:id="101" autowire="byType"
 	/>
 	
 	<bean id="paper2" class="com.study.spring.case02.Paper2"
-	p:id="102" autowire="default"
+	p:id="102" autowire="byName" 
 	/>
 	
 	<bean id="paper3" class="com.study.spring.case02.Paper3"
