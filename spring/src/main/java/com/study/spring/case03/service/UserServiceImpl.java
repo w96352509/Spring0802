@@ -11,6 +11,8 @@ public class UserServiceImpl implements UserService {
 	
 	//private UserDao  userDao = new UserDaoImpl();
 	
+	//自動裝配的順序 byType 在進行 byName
+	
 	@Autowired
 	private UserDao  userDao;
 	
