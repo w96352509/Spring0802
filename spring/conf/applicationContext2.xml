@@ -7,7 +7,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd"
+		default-autowire="byName"
+		>
 	
 	<!-- 手動配置(字面值的配置) -->
 	<bean id="color" class="com.study.spring.case02.Color"
@@ -26,13 +28,21 @@
 	p:id="1" p:name="B5"
 	></bean>
 	
-	<!-- 自動配置 byType根據型別(從case02.Paper中尋找對映)-->
+	<!-- 自動配置 byType根據型別(從case02.Paper中尋找對映)/預設defult就是no-->
 	<bean id="paper" class="com.study.spring.case02.Paper"
-	p:id="101" autowire="byName"
+	p:id="101" autowire="default"
 	/>
 	
 	<bean id="paper2" class="com.study.spring.case02.Paper2"
-	p:id="102" autowire="byName"
+	p:id="102" autowire="default"
+	/>
+	
+	<bean id="paper3" class="com.study.spring.case02.Paper3"
+	p:id="103" autowire="constructor"
+	/>
+	
+	<bean id="paper4" class="com.study.spring.case02.Paper"
+	p:id="104" autowire="default"
 	/>
 	
 	<!-- 資源文件加載 -->
