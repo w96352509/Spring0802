@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class Util {
 	
  public Util() {
-	 System.out.println("Util()");
+	 System.out.println("Util()"); 
  } 	
  
  public Date getToday() {
