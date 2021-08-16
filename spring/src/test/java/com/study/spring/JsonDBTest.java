@@ -30,7 +30,7 @@ public class JsonDBTest {
 	  Type type = new TypeToken<ArrayList<Person>>() {}.getType();
 	  List<Person> people = gson.fromJson(json,type);
 	  System.out.println(people);
-	  //新增一筆 Person 到 people集合
+	  //新增一筆 Person 到 people集
 	  Person person = new Person();
 	  person.setName(new Faker().name().firstName());
 	  person.setAge(new Random().nextInt(100)+1);
