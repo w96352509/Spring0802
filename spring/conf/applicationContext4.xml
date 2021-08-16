@@ -7,7 +7,7 @@
 
 	<context:component-scan base-package="com.study.spring.case04"/>
 	
-	<!-- Gson 套用 Spring 才可以@Autowired -->
+	<!-- 第三方物件 套用 Spring管理 才可以@Autowired -->
 	<bean id="gson" class="com.google.gson.Gson"></bean>
 	<bean id="facker" class="com.github.javafaker.Faker"></bean>
 		

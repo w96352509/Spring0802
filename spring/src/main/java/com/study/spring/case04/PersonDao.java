@@ -3,6 +3,6 @@ package com.study.spring.case04;
 import java.util.List;
 
 public interface PersonDao {
-   public void add();
+   public boolean add(Person person);
    public List<Person> queryAll();
 }
