@@ -23,8 +23,8 @@ public class JsonDB {
 	private static final Path PATH = Paths.get("src/main/java/com/study/spring/case04/person.json");
 
 	public List<Person> queryAll() throws Exception {
-		List<String> list = Files.readAllLines(PATH); // 將檔案變成列表
-		String json = list.stream().collect(Collectors.joining()); // 將列表變成字串
+		List<String> list = Files.readAllLines(PATH); 
+		String json = list.stream().collect(Collectors.joining()); 
 		Type type = new TypeToken<ArrayList<Person>>() {
 		}.getType();
 		List<Person> people = gson.fromJson(json, type);
