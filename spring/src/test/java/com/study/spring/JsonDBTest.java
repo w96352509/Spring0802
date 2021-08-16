@@ -20,23 +20,28 @@ public class JsonDBTest {
 	public static void main(String[] args) throws Exception{
 		
        Path path =Paths.get("src/main/java/com/study/spring/case04/person.json");
-       List<String> list = Files.readAllLines(path);
-       //List合併 String
-       String json  = list.stream().collect(Collectors.joining());
+       List<String> list = Files.readAllLines(path); //將檔案變成列表
+       
+       //List合併 String 讀檔部分
+       String json  = list.stream().collect(Collectors.joining()); //將列表變成字串
        System.out.println(json);
-       //轉成List<Person>
+       
+       
+       //轉成List<Person> //寫檔 //變成集合後可以做修改
 	  Gson gson = new Gson();
 	  //得到Array的型態(集合性資料對Gson的處理)
 	  Type type = new TypeToken<ArrayList<Person>>() {}.getType();
 	  List<Person> people = gson.fromJson(json,type);
 	  System.out.println(people);
-	  //新增一筆 Person 到 people集
+	  
+	  //新增一筆 Person 到 people集合
 	  Person person = new Person();
 	  person.setName(new Faker().name().firstName());
 	  person.setAge(new Random().nextInt(100)+1);
 	  person.setBirDate(new Faker().date().birthday());
       people.add(person);
       System.out.println(people);
+      
       //將 people 集合回存到 Person.json
       json = gson.toJson(people);
       Files.write(path, json.getBytes("utf-8"));
