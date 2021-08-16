@@ -36,8 +36,10 @@ public class JsonDBTest {
 	  person.setAge(new Random().nextInt(100)+1);
 	  person.setBirDate(new Faker().date().birthday());
       people.add(person);
+      System.out.println(people);
       //將 people 集合回存到 Person.json
-      
+      json = gson.toJson(people);
+      Files.write(path, json.getBytes("utf-8"));
 	}
 
 }
