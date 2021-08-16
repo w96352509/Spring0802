@@ -30,8 +30,8 @@ public class JsonDBTest {
        //轉成List<Person> //寫檔 //變成集合後可以做修改
 	  Gson gson = new Gson();
 	  //得到Array的型態(集合性資料對Gson的處理)
-	  Type type = new TypeToken<ArrayList<Person>>() {}.getType();
-	  List<Person> people = gson.fromJson(json,type);
+	  Type type = new TypeToken<ArrayList<Person>>() {}.getType(); //字串轉乘List所需要的步驟
+	  List<Person> people = gson.fromJson(json,type); //(方法 , 型別)
 	  System.out.println(people);
 	  
 	  //新增一筆 Person 到 people集合
@@ -39,7 +39,7 @@ public class JsonDBTest {
 	  person.setName(new Faker().name().firstName());
 	  person.setAge(new Random().nextInt(100)+1);
 	  person.setBirDate(new Faker().date().birthday());
-      people.add(person);
+      people.add(person); //person +到 people  List
       System.out.println(people);
       
       //將 people 集合回存到 Person.json
