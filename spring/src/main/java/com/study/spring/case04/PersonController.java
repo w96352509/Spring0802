@@ -15,6 +15,7 @@ public class PersonController {
 		Person person = new Person();
 		person.setName(name);
 		//計算age(today-birth) 取 year
+		person.setAge(null);
 		person.setBirDate(birDate);
 		return personService.append(person);
 	}

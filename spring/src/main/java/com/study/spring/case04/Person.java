@@ -1,6 +1,7 @@
 package com.study.spring.case04;
 
 import java.util.Date;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -36,6 +37,25 @@ public class Person {
 
 	public void setBirDate(Date birDate) {
 		this.birDate = birDate;
+	}
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, birDate, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(age, other.age) && Objects.equals(birDate, other.birDate)
+				&& Objects.equals(name, other.name);
 	}
 
 	@Override
