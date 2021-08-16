@@ -6,27 +6,35 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
+@PropertySource("classpath:user.properties")
 public class User {
 	
-	@Value(value = "John")
+	//@Value(value = "John")
+	@Value("${user.name1}")
 	private String name;
 	
-	@Value(value = "18")
+	//@Value(value = "18")
+	@Value("${user.age}")
 	private Integer age;
 
-	@Value("#{${nikename : {'Happy','Enjoy'}}}") //spring EL 語法
+	//@Value("#{${nikename : {'Happy','Enjoy'}}}") //spring EL 語法
+	@Value("${user.nikename}")
 	private String[] nikename;    //暱稱
 	
-	@Value("#{${subjects : {'國文','英文','數學'}}}") //spring EL 語法
+	//@Value("#{${subjects : {'國文','英文','數學'}}}") //spring EL 語法
+	@Value("${user.subjects}")
 	private Set<String> subjects; //科目
 	
-	@Value("#{${scores : {'100','90','90'}}}") //spring EL 語法
+	//@Value("#{${scores : {'100','90','90'}}}") //spring EL 語法
+	@Value("#{'${user.scores}'.split(',')}")
 	private List<Integer> scores;  //成績
 	
-	@Value("#{${hobbies : {1:'Car' , peko:'Miko'}}}") // key可以任意取名 spring EL 語法
+	//@Value("#{${hobbies : {1:'Car' , peko:'Miko'}}}") // key可以任意取名 spring EL 語法
+	@Value("#{${user.hobbies}}")
 	private Map<String, String> hobbies ;
 
 
