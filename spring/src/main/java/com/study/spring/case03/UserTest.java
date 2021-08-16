@@ -1,5 +1,7 @@
 package com.study.spring.case03;
 
+import java.util.Calendar;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +13,7 @@ public class UserTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext3.xml");
         UserController uc = ctx.getBean("userController",UserController.class);
         uc.appendUser();
+        
 	}
 
 }

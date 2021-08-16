@@ -10,6 +10,7 @@
 	<!-- 第三方物件 套用 Spring管理 才可以@Autowired -->
 	<bean id="gson" class="com.google.gson.Gson"></bean>
 	<bean id="facker" class="com.github.javafaker.Faker"></bean>
+	
 		
 	
 </beans>
