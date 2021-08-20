@@ -6,7 +6,13 @@ public class TestCalc {
 		Calc calc =(Calc)new ProxyUtil(new CalcImpl()).getProxy();
 		 System.out.println(calc.add(10, 20));
 		 System.out.println();
-		 System.out.println(calc.div(20, 20));
+		 try {
+			System.out.println(calc.div(20, 0));
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
+		 
+		 
 
 	}
 
