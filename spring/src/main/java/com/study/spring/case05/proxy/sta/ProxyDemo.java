@@ -1,4 +1,4 @@
-package com.study.spring.case05.proxy;
+package com.study.spring.case05.proxy.sta;
 
 interface Person {
 	void work();
