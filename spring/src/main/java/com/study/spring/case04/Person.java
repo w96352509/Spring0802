@@ -5,15 +5,15 @@ import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
-import com.github.javafaker.Faker;
 
 @Component
 public class Person {
+	
 	private String name;
 	
 	private Integer age;
-    
-	private Date birDate ;
+	
+	private Date birth;
 
 	public String getName() {
 		return name;
@@ -31,18 +31,17 @@ public class Person {
 		this.age = age;
 	}
 
-	public Date getBirDate() {
-		return birDate;
+	public Date getBirth() {
+		return birth;
 	}
 
-	public void setBirDate(Date birDate) {
-		this.birDate = birDate;
+	public void setBirth(Date birth) {
+		this.birth = birth;
 	}
-
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(age, birDate, name);
+		return Objects.hash(age, birth, name);
 	}
 
 	@Override
@@ -54,14 +53,14 @@ public class Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
-		return Objects.equals(age, other.age) && Objects.equals(birDate, other.birDate)
-				&& Objects.equals(name, other.name);
+		return Objects.equals(age, other.age) && Objects.equals(birth, other.birth) && Objects.equals(name, other.name);
 	}
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", age=" + age + ", birDate=" + birDate + "]";
+		return "Person [name=" + name + ", age=" + age + ", birth=" + birth + "]";
 	}
+	
 	
 	
 }

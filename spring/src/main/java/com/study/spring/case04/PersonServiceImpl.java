@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PersonServiceImpl implements PersonService {
-
+	
 	@Autowired
 	private PersonDao personDao;
-
+	
 	@Override
 	public boolean append(Person person) {
 		return personDao.add(person);
@@ -19,9 +19,8 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public List<Person> findAll() {
-
 		List<Person> people = personDao.queryAll();
-		if (people == null) {
+		if(people == null) {
 			return new ArrayList<Person>();
 		}
 		return people;

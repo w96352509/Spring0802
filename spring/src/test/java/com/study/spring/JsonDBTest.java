@@ -38,7 +38,7 @@ public class JsonDBTest {
 	  Person person = new Person();
 	  person.setName(new Faker().name().firstName());
 	  person.setAge(new Random().nextInt(100)+1);
-	  person.setBirDate(new Faker().date().birthday());
+	  person.setBirth(new Faker().date().birthday());
       people.add(person); //person +到 people  List
       System.out.println(people);
       
