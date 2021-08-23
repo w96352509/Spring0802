@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -54,5 +55,10 @@ public class MyLoggerAspect {
 	@AfterReturning(value = "pt()" , returning = "rusult")
 	public void afterReturning(Object rusult) {   //名稱對應(丟入)
 		System.out.println("返回值"+rusult);
+	}
+	//異常通知(可以設定 throwing 異常通知變數)    (丟入)
+	@AfterThrowing(value = "pt()" , throwing = "ex")
+	public void afterThrowing(Exception ex) {   //名稱對應(丟入)
+		System.out.println("異常通知"+ex);
 	}
 }
