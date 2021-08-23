@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -41,10 +42,17 @@ public class MyLoggerAspect {
 		System.out.printf("方法名稱：%s，方法參數：%s\n", methodName, Arrays.toString(args));
 	}
 	
-	//後置通知 (會放在Finally 區段中)
+	//後置通知 (會放在Finally 區段中   , 無所以無論是否拋出例外都會執行)
 	@After(value = "pt()")
 	public void after() {
 	  System.out.println("後置通知-");
 	  
+	}
+	
+	//接受方法的返回值
+	//返回通知(可以設定returning 來接受方法的返回值  (丟入) )
+	@AfterReturning(value = "pt()" , returning = "rusult")
+	public void afterReturning(Object rusult) {   //名稱對應(丟入)
+		System.out.println("返回值"+rusult);
 	}
 }
