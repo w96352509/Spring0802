@@ -1,6 +1,6 @@
 package com.study.spring.case03.model;
 
-import java.beans.JavaBean;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

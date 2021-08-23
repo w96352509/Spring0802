@@ -13,8 +13,10 @@ public class CalcImpl implements Calc{
 		int result= x/y;
 		return result;
 	}
-   
-	private long getMoney() {
-		return 270000000;
+	
+	private Long getMoney() {
+		
+		return 270_000_000L;
 	}
+	
 }

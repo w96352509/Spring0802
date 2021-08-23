@@ -25,6 +25,7 @@ public class ProxyUtil {
 		//處理代理的實現
 		InvocationHandler handler = (Object proxy, Method method, Object[] args)->{
 			Object result=null;
+			
 			try {
 			  //前置通知
 			  MyLogger.before(object.getClass(),method.getName(),args);
@@ -33,6 +34,7 @@ public class ProxyUtil {
 					              +method.getName()+","
 			                      +Arrays.toString(args));*/
 			  result=method.invoke(object, args); 
+			 
 			  //代理呼叫方法 args=xy值/object代理物件
 			  
 			  return result;
@@ -44,6 +46,7 @@ public class ProxyUtil {
 			}finally {
 			  //後置通知(必做)
 				MyLogger.end(object.getClass(), method.getName(), result);
+				
 				/* System.out.println("後置Log:"
 	                      +object.getClass()+","
 			              +method.getName()+","
