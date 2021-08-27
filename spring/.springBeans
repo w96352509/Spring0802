@@ -12,6 +12,7 @@
 		<config>conf/beans-config.xml</config>
 		<config>conf/applicationContext3.xml</config>
 		<config>conf/aop-config.xml</config>
+		<config>conf/jdbc-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
