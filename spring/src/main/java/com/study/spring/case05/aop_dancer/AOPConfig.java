@@ -4,16 +4,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.stereotype.Component;
 
-//使用Java配置代替 aop-config.xml
-
-@Configuration           //(配置檔)用於取代xml
-@EnableAspectJAutoProxy  //相當於<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-@ComponentScan           //掃描
+// 使用 Java 配置代替 aop-config.xml
+@Configuration
+@EnableAspectJAutoProxy
+@ComponentScan
 public class AOPConfig {
-    @Bean(name = "dancer")
+	@Bean
+	public Audience audience() {
+		return new Audience();
+	}
+	
+	@Bean(name = "dancer")
 	public Performance dancer() {
-	  return new Dancer();
-  }
+		return new Dancer();
+	}
+	
 }
