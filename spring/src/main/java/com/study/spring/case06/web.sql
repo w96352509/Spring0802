@@ -1,6 +1,6 @@
 --建立web資料庫
-create database web character set utf8mb4 collate utf8mb4_general_ci
-
+create database web character set utf8mb4 collate
+ utf8mb4_general_ci
 -- 建立 Emp 資料表
 create table emp(
 	eid int not null auto_increment, -- 主鍵(自行產生序號)
