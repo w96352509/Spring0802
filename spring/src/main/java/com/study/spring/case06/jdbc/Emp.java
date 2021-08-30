@@ -8,6 +8,16 @@ public class Emp {
 	private Integer age;
 	private Date createtime;
 
+	public Emp() {
+
+	}
+
+	public Emp(String ename, Integer age) {
+		this.ename = ename;
+		this.age = age;
+
+	}
+
 	public Integer getEid() {
 		return eid;
 	}
