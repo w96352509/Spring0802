@@ -47,6 +47,7 @@ public class SelectEmp {
     		
     		//多筆查詢-BeanPropertyRowMapper
     		//類似於 BeanUtils
+    		//名稱相同自動對應
     		sql = "select eid, ename, age, createtime from emp";
     		List<Emp> listEmps2=jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Emp.class));
     		System.out.println(listEmps2);
