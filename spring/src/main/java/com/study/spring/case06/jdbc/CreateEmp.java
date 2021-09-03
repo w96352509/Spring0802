@@ -18,16 +18,16 @@ public class CreateEmp {
 
 	@Test
 	public void test() {
-		// case1
-		// case2();
-		case3();
+		//case1();
+		 case2();
+		//case3();
 
 	}
 
 	// 單筆新增
 	public void case1() {
 		String sql = "Insert into emp(ename,age) values(?,?)";
-		jdbcTemplate.update(sql, "Jo", 21);
+		jdbcTemplate.update(sql, "Jo2", 21);
 		System.out.println("Insert OK");
 	}
 
@@ -35,9 +35,9 @@ public class CreateEmp {
 	public void case2() {
 		String sql = "Insert into emp(ename,age) values(?,?)";
 		List<Object[]> list = new ArrayList<>();
-		list.add(new Object[] { "Jean", 22 });
-		list.add(new Object[] { "helen", 22 });
-		list.add(new Object[] { "jack", 24 });
+		list.add(new Object[] { "Jean1", 22 });
+		list.add(new Object[] { "helen2", 22 });
+		list.add(new Object[] { "jack3", 24 });
 		int[] rows = jdbcTemplate.batchUpdate(sql, list);
 		System.out.println(Arrays.toString(rows));// 每筆被更動
 
@@ -68,4 +68,6 @@ public class CreateEmp {
 		int[] rows = jdbcTemplate.batchUpdate(sql, setter);
 		System.out.println(Arrays.toString(rows));// 每筆被更動
 	}
+	
+	
 }
