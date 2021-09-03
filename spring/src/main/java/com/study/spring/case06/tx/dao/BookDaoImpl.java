@@ -18,6 +18,7 @@ public class BookDaoImpl implements BookDao {
 		return jdbcTemplate.queryForObject(sql, args, Integer.class);
 	}
 
+	
 	@Override
 	public Integer updateStock(Integer bid) {
 		// 檢查庫存
@@ -33,10 +34,19 @@ public class BookDaoImpl implements BookDao {
 		return jdbcTemplate.update(sql, args);
 	}
 
+	
 	@Override
 	public Integer updateWallet(Integer wid, Integer money) {
-		String sql = "update wallet set money = money - ? where wid=?";
-		Object[] args = new Object[] { money, wid };
+		// 檢查錢包的錢
+		String sql = "select money from wallet where wid=?";
+		Object[] args = new Object[] { wid };
+		int walletMoney = jdbcTemplate.queryForObject(sql, args, Integer.class);
+		if (walletMoney < money) {
+			throw new RuntimeException("你沒錢了");
+		}
+		// 修改錢包
+		sql = "update wallet set money = money - ? where wid=?";
+		args = new Object[] { money, wid };
 		return jdbcTemplate.update(sql, args);
 	}
 
